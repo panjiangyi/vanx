@@ -16,7 +16,15 @@
   ],
   "globals": { "BigInt": true, "console": true, "WebAssembly": true },
   "rules": {
+    "functional/no-class": "off",
+    "functional/no-this-expression": "off",
+    "functional/no-let": "off",
+    "functional/immutable-data": "off",
+    "@typescript-eslint/no-this-alias": "off",
+    "functional/no-return-void": "off",
+    "functional/functional-parameters": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "functional/prefer-readonly-type": "off",
     "eslint-comments/disable-enable-pair": [
       "error",
       { "allowWholeFile": true }
