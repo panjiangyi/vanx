@@ -11,17 +11,21 @@ next generation state manager.
 
 unfounded.
 
+## philosophy
+
+Vuex, Flux, Redux and blablabla is too complicated.
+A simple Class is strong enough.
+
 # useage
+
+All your states defined as a plain Class, only extra work is extends this Class by Vanx.
+then everything are booted up.
 
 in Store:
 
 ```ts
 import Vanx from 'vanx';
 class Calcutor extends Vanx {
-  constructor() {
-    super();
-    this.proxy();
-  }
   protected result = 0;
   public plus() {
     this.result++;
