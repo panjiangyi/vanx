@@ -25,6 +25,8 @@ in Store:
 
 ```ts
 import Vanx from 'vanx';
+// Create a Class to manage a state.
+// this Class should extends Vanx.
 class Calcutor extends Vanx {
   protected result = 0;
   public plus() {
@@ -34,6 +36,8 @@ class Calcutor extends Vanx {
     this.result--;
   }
 }
+// export your state by instantiate your State manage Class.
+export const calcutor = new Calcutor();
 ```
 
 in Vue file:
@@ -44,9 +48,12 @@ import { calcutor, powerfulCalcutor } from './store';
 
 @Component
 export default class HelloWorld extends Vue {
+  // inject Variable in Calcutor to Vue Component.
   @calcutor.decorator('result')
   private calcutorResule!: number;
   private plus() {
+    // call methods in Calcutor to manipulate state.
+    // then Vanx will tell Vue to update the Dom
     calcutor.plus();
   }
   private minus() {
