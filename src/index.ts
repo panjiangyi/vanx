@@ -4,7 +4,9 @@ type Updator = (v: unknown, vName: string) => void;
 type VueType = any
 const noop = () => null;
 export default class StoreCore {
+    private proxied = false;
     protected proxy(this: StoreCore) {
+        if (this.proxied) return
         Object.keys(this).filter(key => !["eventCenter", "decorator"].includes(key)).forEach((key: string) => {
             let value: unknown = this[key as keyof StoreCore];
             Object.defineProperty(this, key, {
@@ -17,9 +19,11 @@ export default class StoreCore {
                 }
             })
         })
+        this.proxied = true
     }
     protected eventCenter: Array<Updator> = []
     public decorator(wantedVariable: string) {
+        this.proxy()
         const store = this;
         return function (target: VueType, name: string) {
             target[name] = store[wantedVariable as keyof StoreCore];
