@@ -9,7 +9,7 @@ next generation state manager.
 
 ## cons
 
-unfounded.
+unfound.
 
 ## philosophy
 
