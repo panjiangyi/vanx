@@ -1,3 +1,4 @@
+[中文文档](https://segmentfault.com/a/1190000040174929)
 # vanx
 
 next generation state manager.
